@@ -117,8 +117,25 @@ public class OfflineExercises {
 	public int superBlock(String input) {
 		int biggest = 0;
 		int counter = 0;
+		char current;
+		for (int i = 0; i < input.length(); i++) {
+			current = input.charAt(i);
 
-		return -1;
+			if (i > 0) {
+				if (input.charAt(i) == input.charAt(i - 1)) {
+
+					counter++;
+					if (counter > biggest) {
+						biggest = counter;
+					}
+				} else {
+					counter = 1;
+				}
+
+			}
+		}
+
+		return biggest;
 
 	}
 
@@ -146,14 +163,16 @@ public class OfflineExercises {
 	// fizzBuzz(15) → "fizzbuzz"
 
 	public String fizzBuzz(int arg1) {
-		if (arg1 % 3 == 0 && arg1 % 5 == 0)
-			return "fizzbuzz";
-		else if (arg1 % 3 == 0)
-			return "buzz";
-		else if (arg1 % 5 == 0)
-			return "buzz";
-		else
-			return "";
+		String fb = "";
+		if (arg1 % 3 == 0 && arg1 % 5 == 0) {
+			fb = "fizzbuzz";
+		} else if (arg1 % 3 == 0) {
+			fb = "fizz";
+		} else if (arg1 % 5 == 0) {
+			fb = "buzz";
+		}
+
+		return fb;
 	}
 
 	// Given a string split the string into the individual numbers present
